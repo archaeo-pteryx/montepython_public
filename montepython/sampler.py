@@ -150,13 +150,13 @@ def read_args_from_bestfit(data, bestfit):
             data.mcmc_parameters[elem]['last_accepted'] = \
                 bestfit_values[bestfit_names.index(elem)] / \
                 data.mcmc_parameters[elem]['scale']
-            sys.stdout.write('from best-fit file :  %s = ' %(elem))
+            sys.stdout.write('from best-fit file : ', elem, ' = ')
             print(bestfit_values[bestfit_names.index(elem)] / \
                 data.mcmc_parameters[elem]['scale'])
         else:
             data.mcmc_parameters[elem]['last_accepted'] = \
                 data.mcmc_parameters[elem]['initial'][0]
-            sys.stdout.write('from input file    :  %s = ' %(elem))
+            sys.stdout.write('from input file    : ', elem, ' = ')
             print(data.mcmc_parameters[elem]['initial'][0])
 
 
@@ -800,8 +800,10 @@ def compute_lkl(cosmo, data):
             # convention, expecting data as the input parameter
             cosmo.get_current_derived_parameters(data)
         except CosmoSevereError:
-            raise io_mp.CosmologicalModuleError(
-                "Could not write the current derived parameters")
+# edited by Hironao Miyatake to not use derived parameters computed with class
+            print("derived parameters were not computed with class")
+#            raise io_mp.CosmologicalModuleError(
+#                "Could not write the current derived parameters")
 
     # DCH adding a check to make sure the derived_lkl are passed properly
     if data.get_mcmc_parameters(['derived_lkl']) != []:

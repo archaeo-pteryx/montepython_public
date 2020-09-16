@@ -1,0 +1,12 @@
+# BOSS FS DR12
+# Yosuke Kobayashi 2020
+
+BOSS_DR12_power_fs.data_directory     = data.path['data']
+BOSS_DR12_power_fs.k_file             = 'BOSS_DR12_power_fs/boss_dr12_power_fs_k.npy'
+BOSS_DR12_power_fs.signal_file        = 'BOSS_DR12_power_fs/boss_dr12_power_fs_data_patchy.npy'
+BOSS_DR12_power_fs.cov_file           = 'BOSS_DR12_power_fs/boss_dr12_power_fs_cov_patchy.npy'
+BOSS_DR12_power_fs.window_directory   = 'BOSS_DR12_power_fs/window_data'
+BOSS_DR12_power_fs.config_file        = '/work/yosuke.kobayashi/mcmc/boss_dr12_power_fs_likelihood/config_single.json'
+BOSS_DR12_power_fs.use_nuisance = ['Omega_de', 'ln10p10As', 'logMmin', 'sigma_sq', 'logM1', 'alpha', 'kappa']
+# BOSS_DR12_power_fs.rs_rescale          = 1.
+# BOSS_DR12_power_fs.rd_fid_in_Mpc	   = 147.78
