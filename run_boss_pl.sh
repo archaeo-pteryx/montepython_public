@@ -7,9 +7,8 @@
 #PBS -V
 #PBS -e mpiout/boss_dr12.err
 #PBS -o mpiout/boss_dr12.out
-#PBS -N run_mn
+#PBS -N mcmc
 
-export VAR=value
 workdir='/work/yosuke.kobayashi/mcmc/montepython_public/'
 cd ${workdir}
 
@@ -20,8 +19,8 @@ npro=4
 ISflag=True
 efr=0.8
 tol=0.5
-nlive=400
-niter=10000
+nlive=1000
+niter=100000
 seed=1
 ####
 
@@ -36,4 +35,4 @@ fi
 
 # module load mpi/mpich-x86_64
 
-mpirun -np ${npro} python ./montepython/MontePython.py run -p ${paramfile} -o ${out_chains} -m NS --NS_importance_nested_sampling ${ISflag} --NS_evidence_tolerance ${efr} --NS_sampling_efficiency ${tol} --NS_n_live_points ${nlive} --NS_max_iter ${niter} --NS_seed ${seed} > log_boss.txt
+mpirun -np ${npro} python ./montepython/MontePython.py run -p ${paramfile} -o ${out_chains} -N 50000 > log_boss_dr12.txt
