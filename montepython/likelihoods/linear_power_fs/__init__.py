@@ -3,7 +3,7 @@ import numpy as np
 from mpi4py import MPI
 import logging
 import os, sys, time
-sys.path.append('/raid/kobayashi/mcmc')
+sys.path.append('/work/yosuke.kobayashi/mcmc')
 import boss_dr12_power_fs_likelihood as utils
 
 class linear_power_fs(Likelihood):
